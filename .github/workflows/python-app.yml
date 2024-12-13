@@ -30,7 +30,7 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
-    needs: build
+    needs: pytest
     permissions:
       contents: read
       packages: write
