@@ -7,7 +7,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
+  pytest:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
