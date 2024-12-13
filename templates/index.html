@@ -4,21 +4,52 @@
     <meta charset="UTF-8">
     <title>Inventaire des Serveurs</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Inventaire des Serveurs</h1>
-    <form method="post" action="/">
-        <label for="name">Nom du Serveur :</label>
-        <input type="text" id="name" name="name" required>
-        <label for="ip">Adresse IP :</label>
-        <input type="text" id="ip" name="ip" required>
-        <button type="submit">Ajouter</button>
-    </form>
-    <h2>Liste des Serveurs</h2>
-    <ul>
-        {% for server in servers %}
-            <li>{{ server.name }} - {{ server.ip }}</li>
-        {% endfor %}
-    </ul>
+    <nav>
+        <div class="nav-container">
+            <h1><i class="fas fa-server"></i> Inventaire des Serveurs</h1>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="form-card">
+                <h2><i class="fas fa-plus-circle"></i> Ajouter un serveur</h2>
+                <form method="post" action="/">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-tag"></i> Nom du Serveur</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ip"><i class="fas fa-network-wired"></i> Adresse IP</label>
+                        <input type="text" id="ip" name="ip" required>
+                    </div>
+                    <button type="submit"><i class="fas fa-save"></i> Ajouter</button>
+                </form>
+            </div>
+
+            <div class="servers-list">
+                <h2><i class="fas fa-list"></i> Liste des Serveurs</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom du serveur</th>
+                            <th>Adresse IP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for server in servers %}
+                        <tr>
+                            <td>{{ server.name }}</td>
+                            <td>{{ server.ip }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
