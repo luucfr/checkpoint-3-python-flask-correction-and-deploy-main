@@ -93,7 +93,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          password: ${{ secrets.SSH_PASSWORD }}
           script: |
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             docker run -d --name my_app_container -p 80:80 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
